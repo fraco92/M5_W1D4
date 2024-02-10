@@ -21,7 +21,7 @@ function App() {
     <>
       <Navbar links={["Home", "About", "Browse"]} />
       <Welcome />
-      <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 grid-flow-row gap-4 mx-8">
+      <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 grid-flow-row gap-4 mx-8 mb-16">
         {books.map((book, index) => (
           <CardBook key={index} book={book} />
         ))}
