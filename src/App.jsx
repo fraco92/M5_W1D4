@@ -13,7 +13,6 @@ function App() {
   useEffect(() => {
     getBooks().then((books) => {
       setBooks(books);
-      console.log(books);
     });
   }, []);
 
