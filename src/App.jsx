@@ -9,14 +9,6 @@ import { useEffect } from "react";
 import scifi from "./assets/json_books/scifi.json";
 
 function App() {
-  const [books, setBooks] = useState([]);
-
-  useEffect(() => {
-    AllTheBooks().then((books) => {
-      setBooks(books);
-    });
-  }, []);
-
   return (
     <>
       <Navbar links={["Home", "About", "Browse"]} />

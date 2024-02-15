@@ -3,10 +3,22 @@
 // import horror from "../assets/json_books/horror.json";
 // import romance from "../assets/json_books/romance.json";
 
+import { useState } from "react";
+import { useEffect } from "react";
+import scifi from "./assets/json_books/scifi.json";
+
 import { SingleBook } from "./SingleBook.jsx";
 
-export const AllTheBooks = ({ books }) => {
+export const AllTheBooks = () => {
   // const allBooks = [...fantasy, ...history, ...horror, ...romance, ...scifi];
+
+  const [books, setBooks] = useState([]);
+
+  useEffect(() => {
+    AllTheBooks().then((books) => {
+      setBooks(scifi);
+    });
+  }, []);
 
   const showBooks = books.map((book, index) => (
     // <div key={index} className="border">
