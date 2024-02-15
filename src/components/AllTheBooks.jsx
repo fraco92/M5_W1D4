@@ -2,31 +2,16 @@
 // import history from "../assets/json_books/history.json";
 // import horror from "../assets/json_books/horror.json";
 // import romance from "../assets/json_books/romance.json";
-import scifi from "../assets/json_books/scifi.json";
 
-export const AllTheBooks = () => {
+import { SingleBook } from "./SingleBook.jsx";
+
+export const AllTheBooks = ({ books }) => {
   // const allBooks = [...fantasy, ...history, ...horror, ...romance, ...scifi];
 
-  const showBooks = scifi.map((book, index) => (
-    <div key={index} className="border">
-      <img
-        className="w-60 aspect-[5/8] object-cover m-auto"
-        src={book.img}
-        alt={book.title}
-      />
-      <div className="mx-5 mt-2">
-        <div>
-          <h3 className="font-bold text-base">{book.title}</h3>
-          <h4 className="text-xs">{book.category}</h4>
-          <div className="mt-1 text-xs">ASIN: {book.asin}</div>
-        </div>
-        <div className="my-2 flex items-center">
-          <div>{book.price} €</div>
-          <button className="items-center rounded-md bg-neutral-600 px-3 py-2 ms-3 text-sm font-semibold text-white shadow-sm hover:bg-neutral-500">
-            Add to Cart
-          </button>
-        </div>
-      </div>
+  const showBooks = books.map((book, index) => (
+    // <div key={index} className="border">
+    <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 grid-flow-row gap-4 mx-8 mb-16">
+      <SingleBook key={index} book={book} />
     </div>
   ));
 
