@@ -1,6 +1,15 @@
+import { useEffect } from "react";
+import { useState } from "react";
+
 export const SingleBook = ({ book }) => {
+  const [selected, setSelected] = useState(false);
+
   return (
-    <div className="border">
+    <div
+      onClick={() => setSelected(!selected)}
+      className={"border " + (selected ? "border-red-600" : "")}
+    >
+      {}
       <img
         className="w-60 aspect-[5/8] object-cover m-auto"
         src={book.img}
@@ -17,3 +26,5 @@ export const SingleBook = ({ book }) => {
     </div>
   );
 };
+
+// border-red-600
