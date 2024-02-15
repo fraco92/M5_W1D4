@@ -1,6 +1,14 @@
-export const CardBook = ({ book }) => {
-  return (
-    <div className="border">
+// import fantasy from "../assets/json_books/fantasy.json";
+// import history from "../assets/json_books/history.json";
+// import horror from "../assets/json_books/horror.json";
+// import romance from "../assets/json_books/romance.json";
+import scifi from "../assets/json_books/scifi.json";
+
+export const AllTheBooks = () => {
+  // const allBooks = [...fantasy, ...history, ...horror, ...romance, ...scifi];
+
+  const showBooks = scifi.map((book, index) => (
+    <div key={index} className="border">
       <img
         className="w-60 aspect-[5/8] object-cover m-auto"
         src={book.img}
@@ -20,5 +28,7 @@ export const CardBook = ({ book }) => {
         </div>
       </div>
     </div>
-  );
+  ));
+
+  return <>{showBooks}</>;
 };
