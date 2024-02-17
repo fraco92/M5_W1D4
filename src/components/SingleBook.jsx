@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { useState } from "react";
 
 export const SingleBook = ({ book }) => {
@@ -7,7 +6,7 @@ export const SingleBook = ({ book }) => {
   return (
     <div
       onClick={() => setSelected(!selected)}
-      className={"border " + (selected ? "border-red-600" : "")}
+      className={"border rounded-md" + (selected ? "border-red-600" : "")}
     >
       {}
       <img
@@ -16,15 +15,15 @@ export const SingleBook = ({ book }) => {
         alt={book.title}
       />
       <div className="mx-5 mt-2">
-        <h3 className="font-bold text-base">{book.title}</h3>
-        <div className="my-2 flex items-center">
-          <button className="items-center rounded-md bg-neutral-600 px-3 py-2 ms-3 text-sm font-semibold text-white shadow-sm hover:bg-neutral-500">
-            Add to Cart
-          </button>
-        </div>
+        <h3 className="font-bold text-base text-center">{book.title}</h3>
+        <div className="my-2 flex items-center"></div>
       </div>
     </div>
   );
 };
 
 // border-red-600
+
+/* <button className="items-center rounded-md bg-neutral-600 px-3 py-2 ms-3 text-sm font-semibold text-white shadow-sm hover:bg-neutral-500">
+Select ad 
+</button> */
