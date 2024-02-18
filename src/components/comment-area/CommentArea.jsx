@@ -48,7 +48,7 @@ export const CommentArea = ({ open, onClose }) => {
                     Commenti
                   </Dialog.Title>
                   <div className="mt-2">
-                    <ul></ul>
+                    <ul>LISTA COMMENTI</ul>
                   </div>
 
                   <div className="mt-4">

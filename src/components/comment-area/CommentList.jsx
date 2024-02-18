@@ -1,8 +1,7 @@
-export const CommentList = ({ comment }) => {
+export const SingleCOmment = ({ comment }) => {
   return (
-    <li>
-      <h4>{comment.author}</h4>
-      <p>{comment.comment}</p>
-    </li>
+    <ul>
+      <SingleComment />
+    </ul>
   );
 };
