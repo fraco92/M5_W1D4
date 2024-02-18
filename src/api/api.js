@@ -1,10 +1,10 @@
 import { stringify } from "postcss";
 import { token } from "./config.js";
 
-const URL = "https://striveschool-api.herokuapp.com/books/";
+const URL = "https://striveschool-api.herokuapp.com/";
 
 export const getBooks = async () => {
-  const response = await fetch(URL, {
+  const response = await fetch(URL + `books/`, {
     method: "GET",
     headers: {
       Authorization: token,
@@ -14,7 +14,7 @@ export const getBooks = async () => {
 };
 
 export const getBookComments = async (asin) => {
-  const response = await fetch(URL + `${asin}/comments/`, {
+  const response = await fetch(URL + `api/books/${asin}/comments/`, {
     method: "GET",
     headers: {
       Authorization: token,
