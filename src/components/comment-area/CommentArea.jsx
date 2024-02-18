@@ -1,8 +1,8 @@
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
 
-import { getBookComments } from "../api/api.js";
 import { useEffect } from "react";
+import { getBookComments } from "../../api/api";
 
 export const CommentArea = ({ open, onClose }) => {
   const [comments, setComments] = useState([]);
