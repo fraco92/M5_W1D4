@@ -5,7 +5,8 @@
 
 import { useState } from "react";
 import { useEffect } from "react";
-import scifi from "../assets/json_books/scifi.json";
+// import scifi from "../assets/json_books/scifi.json";
+import { getBooks } from "../api/api.js";
 
 import { SingleBook } from "./SingleBook.jsx";
 
@@ -17,11 +18,13 @@ export const AllTheBooks = () => {
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
-    setBooks(books);
+    getBooks(books).then((books) => {
+      setBooks(books);
+    });
   }, []);
 
   const bookList = () =>
-    scifi.filter((book) =>
+    books.filter((book) =>
       book.title.toLowerCase().includes(bookFilter.toLowerCase())
     );
 
