@@ -31,7 +31,7 @@ export const addBookComment = async (comment, rate, asin) => {
     headers: {
       Authorization: token,
     },
-    body: body,
+    body: JSON.stringify(body),
   });
   return await response.json();
 };
