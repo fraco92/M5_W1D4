@@ -1,8 +1,10 @@
-export const SingleCOmment = ({ comment }) => {
+export const SingleComment = ({ comment }) => {
   return (
-    <li>
-      <h4>{comment.author}</h4>
-      <p>{comment.comment}</p>
+    <li className="pb-2">
+      <h4 className="font-thin text-xs pe-1">
+        {comment.author} dice [{comment.createdAt}]:{" "}
+      </h4>
+      <p>"{comment.comment}"</p>
     </li>
   );
 };

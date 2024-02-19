@@ -20,7 +20,11 @@ export const SingleBook = ({ book }) => {
           <div className="my-2 flex items-center"></div>
         </div>
       </div>
-      <CommentArea open={selected} onClose={() => setSelected(false)} />
+      <CommentArea
+        asin={book.asin}
+        open={selected}
+        onClose={() => setSelected(false)}
+      />
     </div>
   );
 };

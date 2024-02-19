@@ -23,17 +23,15 @@ export const getBookComments = async (asin) => {
   return await response.json();
 };
 
-export const addBookComment = async (comment) => {
-  const response = await fetch(URL + `comments/`, {
+export const addBookComment = async (comment, rate, asin) => {
+  const body = { comment, rate, elementId: asin };
+  console.log(body);
+  const response = await fetch(URL + `api/comments/`, {
     method: "POST",
     headers: {
       Authorization: token,
     },
-    body: {
-      comment: string,
-      rate: string,
-      elementId: string,
-    },
+    body: body,
   });
   return await response.json();
 };

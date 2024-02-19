@@ -3,15 +3,19 @@ import { Fragment, useState } from "react";
 
 import { useEffect } from "react";
 import { getBookComments } from "../../api/api";
+import { CommentList } from "./CommentList";
+import { AddComment } from "./AddComment";
 
-export const CommentArea = ({ open, onClose }) => {
+export const CommentArea = ({ open, onClose, asin }) => {
   const [comments, setComments] = useState([]);
 
   useEffect(() => {
-    getBookComments(comments).then((comments) => {
-      setComments(comments);
-    });
-  });
+    if (open && comments.length === 0) {
+      getBookComments(asin).then((comments) => {
+        setComments(comments);
+      });
+    }
+  }, [open]);
 
   return (
     <>
@@ -43,17 +47,17 @@ export const CommentArea = ({ open, onClose }) => {
                 <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
                   <Dialog.Title
                     as="h3"
-                    className="text-lg font-medium leading-6 text-gray-900"
+                    className="pb-4 text-3xl font-medium leading-6 text-gray-900"
                   >
                     Commenti
                   </Dialog.Title>
                   <div className="mt-2">
-                    <ul>LISTA COMMENTI</ul>
+                    <CommentList comments={comments} />
                   </div>
-
-                  <div className="mt-4">
+                  <AddComment asin={asin} />
+                  <div className="mt-4 flex justify-between">
                     <button
-                      className="px-2 border rounded-md border-slate-300 focus:outline-none focus:border-slate-400 hover:bg-slate-100"
+                      className="px-2 border rounded-md border-slate-300 focus:outline-none focus:border-slate-400 hover:bg-red-200"
                       onClick={onClose}
                     >
                       Chiudi
