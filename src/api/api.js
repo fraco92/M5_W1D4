@@ -1,4 +1,3 @@
-import { stringify } from "postcss";
 import { token } from "./config.js";
 
 const URL = "https://striveschool-api.herokuapp.com/";
@@ -23,15 +22,14 @@ export const getBookComments = async (asin) => {
   return await response.json();
 };
 
-export const addBookComment = async (comment, rate, asin) => {
-  const body = { comment, rate, elementId: asin };
-  console.log(body);
+export const addBookComment = async (comment) => {
   const response = await fetch(URL + `api/comments/`, {
     method: "POST",
     headers: {
       Authorization: token,
+      "Content-Type": "application/json",
     },
-    body: body,
+    body: JSON.stringify(comment),
   });
   return await response.json();
 };
