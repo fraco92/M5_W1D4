@@ -15,7 +15,7 @@ export const CommentArea = ({ open, onClose, asin }) => {
         setComments(comments);
       });
     }
-  }, [open]);
+  }, [open, comments]);
 
   return (
     <>
@@ -54,7 +54,7 @@ export const CommentArea = ({ open, onClose, asin }) => {
                   <div className="mt-2">
                     <CommentList comments={comments} />
                   </div>
-                  <AddComment asin={asin} />
+                  <AddComment onSubmit={() => setComments([])} asin={asin} />
                   <div className="mt-4 flex justify-between">
                     <button
                       className="px-2 border rounded-md border-slate-300 focus:outline-none focus:border-slate-400 hover:bg-red-200"

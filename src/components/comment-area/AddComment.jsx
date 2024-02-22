@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { addBookComment, getBookComments } from "../../api/api";
 
-export const AddComment = ({ asin }) => {
+export const AddComment = ({ asin, onSubmit }) => {
   const [commentInput, setCommentInput] = useState("");
   const [rateInput, setRateInput] = useState("");
 
@@ -14,7 +14,7 @@ export const AddComment = ({ asin }) => {
     };
     try {
       const response = await addBookComment(commentData).then(getBookComments);
-      console.log(response);
+      onSubmit();
     } catch (error) {
       console.error(error);
     }
