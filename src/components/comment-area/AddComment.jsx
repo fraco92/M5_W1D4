@@ -1,15 +1,30 @@
 import { useState } from "react";
-import { addBookComment } from "../../api/api";
+import { addBookComment, getBookComments } from "../../api/api";
 
-export const AddComment = ({ asin }) => {
+export const AddComment = ({ asin, onSubmit }) => {
   const [commentInput, setCommentInput] = useState("");
   const [rateInput, setRateInput] = useState("");
 
-  const clickHandler = (e) => {
+  const clickHandler = async (e) => {
     e.preventDefault();
-    console.log(commentInput, rateInput, asin);
-    addBookComment(commentInput, rateInput, asin);
+    const commentData = {
+      comment: commentInput,
+      rate: rateInput,
+      elementId: asin,
+    };
+    try {
+      const response = await addBookComment(commentData).then(getBookComments);
+      onSubmit();
+    } catch (error) {
+      console.error(error);
+    }
   };
+
+  // const clickHandler = (e) => {
+  //   e.preventDefault();
+
+  //   addBookComment(commentInput, rateInput, asin);
+  // };
 
   return (
     <>
