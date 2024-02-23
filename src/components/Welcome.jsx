@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 
 export const Welcome = () => {
-  // useEffect(() => {
-  //   alert("Hey! You're in!");
-  // }, []);
+  useEffect(() => {
+    alert("Hey! You're in!");
+  }, []);
 
   return (
     <>

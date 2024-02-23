@@ -15,8 +15,8 @@ export const Navbar = ({ links }) => {
     );
 
   return (
-    <div className="bg-neutral-100 py-3 shadow-xl shadow-gray-300/50 flex justify-center gap-1">
-      <div>
+    <div className="flex items-center gap-10 bg-neutral-100 py-3 shadow-xl shadow-gray-300/50 flex justify-center gap-1">
+      <div className="flex items-center gap-3">
         <img
           className="h-[32px]"
           src="./public/books-study-learning-education-reading-library-svgrepo-com.svg"
@@ -31,7 +31,7 @@ export const Navbar = ({ links }) => {
         </ul>
       </div>
       <input
-        className="mb-4 mx-auto rounded-md text-center border border-slate-300 focus:outline-none focus:border-slate-600"
+        className="rounded-lg text-center border border-slate-300 focus:outline-none focus:border-slate-600"
         onChange={handlerInput}
         type="text"
         placeholder="Cerca qui il tuo libro"
@@ -39,5 +39,3 @@ export const Navbar = ({ links }) => {
     </div>
   );
 };
-
-// ./public/books-study-learning-education-reading-library-svgrepo-com.svg
