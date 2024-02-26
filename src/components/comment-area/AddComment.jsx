@@ -28,12 +28,12 @@ export const AddComment = ({ asin, onSubmit }) => {
 
   return (
     <>
-      <div className="my-5">
+      <div className="my-5 sticky top-0">
         <textarea
           onChange={(e) => setCommentInput(e.target.value)}
           className="mt-3 border rounded-md p-2"
           name="comment"
-          cols="45"
+          cols="30"
           rows="3"
           placeholder="Inserisci il tuo commento"
         ></textarea>

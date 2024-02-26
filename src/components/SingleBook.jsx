@@ -16,15 +16,17 @@ export const SingleBook = ({ book }) => {
           alt={book.title}
         />
         <div className="mx-5 mt-2">
-          <h3 className="font-bold text-base text-center">{book.title}</h3>
+          <h3 className="font-bold text-sm text-center truncate">
+            {book.title}
+          </h3>
           <div className="my-2 flex items-center"></div>
         </div>
       </div>
-      <CommentArea
+      {/* <CommentArea
         asin={book.asin}
         open={selected}
         onClose={() => setSelected(false)}
-      />
+      /> */}
     </div>
   );
 };

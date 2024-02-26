@@ -12,7 +12,9 @@ function App() {
       <BooksProvider>
         <Navbar links={["Home", "About", "Browse"]} />
         <Welcome />
+
         <AllTheBooks />
+
         <Footer />
       </BooksProvider>
     </>
