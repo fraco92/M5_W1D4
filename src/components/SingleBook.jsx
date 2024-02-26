@@ -1,14 +1,20 @@
-import { useState } from "react";
-import { CommentArea } from "./comment-area/CommentArea.jsx";
+import { useSelectedStore } from "../store/selectedBook.js";
 
 export const SingleBook = ({ book }) => {
-  const [selected, setSelected] = useState(false);
+  const { setAsin, asin } = useSelectedStore();
+
+  const handlerClick = () => {
+    const newAsin = book.asin === asin ? undefined : book.asin;
+    setAsin(newAsin);
+  };
 
   return (
     <div>
       <div
-        onClick={() => setSelected(!selected)}
-        className={"border rounded-md" + (selected ? " border-red-600" : "")}
+        onClick={handlerClick}
+        className={
+          "border rounded-md" + (book.asin === asin ? " border-red-600" : "")
+        }
       >
         <img
           className="w-60 aspect-[5/8] object-cover m-auto"
@@ -22,11 +28,6 @@ export const SingleBook = ({ book }) => {
           <div className="my-2 flex items-center"></div>
         </div>
       </div>
-      {/* <CommentArea
-        asin={book.asin}
-        open={selected}
-        onClose={() => setSelected(false)}
-      /> */}
     </div>
   );
 };

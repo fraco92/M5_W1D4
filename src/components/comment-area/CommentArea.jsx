@@ -9,7 +9,11 @@ export const CommentArea = ({ open, onClose, asin }) => {
   const [comments, setComments] = useState([]);
 
   useEffect(() => {
-    if (open && comments.length === 0) {
+    setComments([]);
+  }, [asin]);
+
+  useEffect(() => {
+    if (open && asin && comments.length === 0) {
       getBookComments(asin).then((comments) => {
         setComments(comments);
       });

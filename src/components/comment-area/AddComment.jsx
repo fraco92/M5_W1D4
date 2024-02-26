@@ -20,12 +20,6 @@ export const AddComment = ({ asin, onSubmit }) => {
     }
   };
 
-  // const clickHandler = (e) => {
-  //   e.preventDefault();
-
-  //   addBookComment(commentInput, rateInput, asin);
-  // };
-
   return (
     <>
       <div className="my-5 sticky top-0">
@@ -48,6 +42,7 @@ export const AddComment = ({ asin, onSubmit }) => {
           />
         </div>
         <button
+          disabled={!asin}
           onClick={clickHandler}
           className="px-2 border rounded-md border-slate-300 focus:outline-none focus:border-slate-400 hover:bg-orange-200"
         >

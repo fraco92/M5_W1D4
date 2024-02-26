@@ -2,9 +2,13 @@ import { SingleBook } from "./SingleBook.jsx";
 import { useContext } from "react";
 import { BookContext } from "../context/BookContext.jsx";
 import { CommentArea } from "./comment-area/CommentArea.jsx";
+import { CommentList } from "./comment-area/CommentList.jsx";
+import { useSelectedStore } from "../store/selectedBook.js";
 
 export const AllTheBooks = () => {
   const { filterBooks } = useContext(BookContext);
+
+  const asin = useSelectedStore((state) => state.asin);
 
   return (
     <>
@@ -16,8 +20,9 @@ export const AllTheBooks = () => {
             ))}
           </div>
         </div>
+
         <div className="me-8">
-          <CommentArea />
+          <CommentArea asin={asin} open={true} />
         </div>
       </div>
     </>
