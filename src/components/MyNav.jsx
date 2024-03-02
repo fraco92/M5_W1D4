@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { BookContext } from "../context/BookContext";
-
+import { Link } from "react-router-dom";
 export const Navbar = ({ links }) => {
   const { books, setFilterBooks } = useContext(BookContext);
 
@@ -23,11 +23,15 @@ export const Navbar = ({ links }) => {
           alt=""
         />
         <ul className="flex justify-center gap-5">
-          {links.map((link, index) => (
-            <li key={index}>
-              <a href={"#" + link}>{link}</a>
-            </li>
-          ))}
+          <Link to="/">
+            <div>Home</div>
+          </Link>
+          <Link to="/about">
+            <div>About</div>
+          </Link>
+          <Link to="/browse">
+            <div>Browse</div>
+          </Link>
         </ul>
       </div>
       <input

@@ -2,21 +2,26 @@ import "./App.css";
 import { Footer } from "./components/MyFooter";
 import { Navbar } from "./components/MyNav";
 import { Welcome } from "./components/Welcome";
-// import { getBooks } from "./api/api";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AllTheBooks } from "./components/AllTheBooks";
 import { BooksProvider } from "./context/BookContext";
-
+import { NotFound } from "./components/NotFound";
 function App() {
   return (
     <>
-      <BooksProvider>
-        <Navbar links={["Home", "About", "Browse"]} />
-        <Welcome />
+      <BrowserRouter>
+        <BooksProvider>
+          <Navbar />
 
-        <AllTheBooks />
+          <Welcome />
+          <Routes>
+            <Route path="/" element={<AllTheBooks />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
 
-        <Footer />
-      </BooksProvider>
+          <Footer />
+        </BooksProvider>
+      </BrowserRouter>
     </>
   );
 }
