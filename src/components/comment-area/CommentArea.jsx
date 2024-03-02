@@ -22,10 +22,12 @@ export const CommentArea = ({ open, onClose, asin }) => {
 
   return (
     <>
-      <div>
-        <CommentList comments={comments} />
+      <div className="border border-slate-300 rounded-lg p-4">
+        <div>
+          <CommentList comments={comments} />
+        </div>
+        <AddComment onSubmit={() => setComments([])} asin={asin} />
       </div>
-      <AddComment onSubmit={() => setComments([])} asin={asin} />
     </>
   );
 };

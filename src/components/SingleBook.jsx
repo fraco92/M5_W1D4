@@ -14,7 +14,7 @@ export const SingleBook = ({ book }) => {
         onClick={handlerClick}
         className={
           "border hover:scale-[1.04] transition-transform duration-500 transform-gpu hover:shadow-xl cursor-pointer" +
-          (book.asin === asin ? " border-red-600 border-3 scale-[1.04]" : "")
+          (book.asin === asin ? " border-red-600 border-4 scale-[1.04]" : "")
         }
       >
         <img
