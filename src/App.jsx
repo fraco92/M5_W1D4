@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AllTheBooks } from "./components/AllTheBooks";
 import { BooksProvider } from "./context/BookContext";
 import { NotFound } from "./components/NotFound";
+import { BookDetails } from "./components/BookDetails";
 function App() {
   return (
     <>
@@ -16,6 +17,7 @@ function App() {
           <Welcome />
           <Routes>
             <Route path="/" element={<AllTheBooks />} />
+            <Route path="/details/:asin" element={<BookDetails />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
 

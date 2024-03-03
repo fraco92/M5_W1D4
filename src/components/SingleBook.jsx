@@ -1,7 +1,10 @@
 import { useSelectedStore } from "../store/selectedBook.js";
+import { useNavigate } from "react-router-dom";
 
 export const SingleBook = ({ book }) => {
   const { setAsin, asin } = useSelectedStore();
+
+  const navigateTo = useNavigate();
 
   const handlerClick = () => {
     const newAsin = book.asin === asin ? undefined : book.asin;
@@ -26,7 +29,15 @@ export const SingleBook = ({ book }) => {
           <h3 className="font-bold text-sm text-center truncate">
             {book.title}
           </h3>
-          <div className="my-2 flex items-center"></div>
+          <div className="my-2 flex justify-center items-center">
+            <button
+              type="button"
+              onClick={() => navigateTo(`/details/${book.asin}`)}
+              className="rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+            >
+              Dettagli
+            </button>
+          </div>
         </div>
       </div>
     </div>
